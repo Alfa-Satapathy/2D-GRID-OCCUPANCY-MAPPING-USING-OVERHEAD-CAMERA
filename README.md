@@ -5,10 +5,9 @@ _____________________________________________________________________________
 
 # 2D GRID OCCUPANCY MAPPING USING OVERHEAD CAMERA - Intel Unnati Industrial Training Program 2024 
 
-## Member Name
-## Name:- Piyush Ranjan Satapathy
-## College Name:- Kalinga Institute of Industrial Technology, Bhubaneswar
-## Roll Number:- 2128080
+### Name:- Piyush Ranjan Satapathy
+### College Name:- Kalinga Institute of Industrial Technology, Bhubaneswar
+### Roll Number:- 2128080
 
 ## Problem Statement
 Robots navigating in unknown environments require accurate mapping and localization to avoid obstacles and plan paths efficiently. Traditional mapping techniques can struggle with dynamic environments and sensor noise. The challenge is to develop a robust system that can generate a real-time 2D occupancy grid from 3D points produced by a monocular vision-based SLAM system, while accurately handling uncertainties in the robot's pose.
