@@ -113,12 +113,6 @@ Expands obstacle cells based on the robot’s pose uncertainties, improving map 
 - **Rviz and Gazebo**: For visualizing the generated maps and robot navigation.
 - **Probabilistic Modeling**: For handling uncertainties in sensor measurements and robot pose.
 
-## Conclusion
-The proposed system provides a robust and efficient solution for generating real-time 2D occupancy grids from monocular vision-based SLAM data. By integrating advanced enhancement techniques and probabilistic modeling, the system ensures accurate mapping and reliable navigation. The use of ROS for visualization and real-time processing further enhances the system’s capabilities, making it a valuable tool for robotic navigation in dynamic and uncertain environments.
-
-
-
-
 # ORB-SLAM2
 
 
@@ -318,4 +312,9 @@ This is the default mode. The system runs in parallal three threads: Tracking, L
 
 ### Localization Mode
 This mode can be used when you have a good map of your working area. In this mode the Local Mapping and Loop Closing are deactivated. The system localizes the camera in the map (which is no longer updated), using relocalization if needed. 
+
+## Conclusion
+The proposed system provides a robust and efficient solution for generating real-time 2D occupancy grids from monocular vision-based SLAM data. By integrating advanced enhancement techniques and probabilistic modeling, the system ensures accurate mapping and reliable navigation. The use of ROS for visualization and real-time processing further enhances the system’s capabilities, making it a valuable tool for robotic navigation in dynamic and uncertain environments.
+
+
 
