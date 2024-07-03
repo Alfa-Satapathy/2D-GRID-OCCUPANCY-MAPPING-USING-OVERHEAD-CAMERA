@@ -5,6 +5,120 @@ _____________________________________________________________________________
 
 # 2D GRID OCCUPANCY MAPPING USING OVERHEAD CAMERA - Intel Unnati Industrial Training Program 2024 
 
+## Problem Statement
+Robots navigating in unknown environments require accurate mapping and localization to avoid obstacles and plan paths efficiently. Traditional mapping techniques can struggle with dynamic environments and sensor noise. The challenge is to develop a robust system that can generate a real-time 2D occupancy grid from 3D points produced by a monocular vision-based SLAM system, while accurately handling uncertainties in the robot's pose.
+
+## Unique Idea Brief (Solution)
+The proposed solution leverages ORB-SLAM for generating 3D points and keyframes, and converts these into a 2D occupancy grid in real-time. The system enhances the accuracy of the grid map by implementing local and global counter techniques, thresholding, Gaussian smoothing, edge detection, and slope thresholding. It integrates ROS for real-time visualization and navigation, and employs probabilistic modeling to account for uncertainties in robot pose and sensor measurements.
+
+## Features Offered
+
+### Real-time 2D Occupancy Grid Generation
+Converts 3D points from ORB-SLAM into 2D grid maps in real-time for effective robot navigation.
+
+### Local and Global Counter Enhancement
+Prevents misrepresentation of co-linear points, ensuring accurate differentiation between occupied and free spaces by counting observations.
+
+### Thresholding Techniques
+- **Visit Thresholding**: Filters out noise by setting a minimum number of observations required for a cell.
+- **Height Thresholding**: Filters out points below a certain height, assuming they are part of the floor.
+
+### Gaussian Smoothing
+Smooths transitions between free and occupied cells to reduce noise and create a realistic map.
+
+### Canny Edge Detection
+Marks obstacle boundaries accurately in the grid map to help the robot identify and avoid obstacles.
+
+### Slope Thresholding
+Differentiates between horizontal planes (floor) and obstacles based on slope, ensuring significant height differences are classified as obstacles.
+
+### ROS Integration
+Uses ROS nodes to visualize the generated map and support navigation in Rviz, allowing real-time monitoring and interaction with the mapping system.
+
+### Probabilistic Modeling
+Utilizes the robot’s pose, pose uncertainties, and a homographic matrix for accurate environmental mapping, addressing sensor and movement uncertainties.
+
+### Image Segmentation
+Classifies the environment into "floor" and "non-floor" regions, helping identify free space and obstacles.
+
+### Reclassification and Mapping
+Reclassifies non-floor cells as obstacles or occlusive regions and maps these using the homography matrix accurately.
+
+### Pose Uncertainty Handling
+Expands obstacle cells based on the robot’s pose uncertainties, improving map accuracy by accounting for potential errors in the robot's position.
+
+## Process Flow
+
+1. **ORB-SLAM Setup**
+   - Install and configure ORB-SLAM on the robot. Calibrate the camera for accurate data capture.
+
+2. **Data Reproduction**
+   - Reproduce ORB-SLAM results using standard datasets like KITTI and TUM to ensure system functionality.
+
+3. **2D Grid Map Generation**
+   - Create a Python script to convert ORB-SLAM’s keyframes and map points into a 2D occupancy grid by projecting 3D points onto a 2D plane.
+
+4. **Visualization**
+   - Use ROS nodes to visualize the generated 2D map in Rviz for real-time monitoring and debugging.
+
+5. **Real-time Processing**
+   - Convert the Python prototype into a C++ implementation for real-time performance, and create ROS nodes for efficient data handling.
+
+6. **Enhancements Implementation**
+   - Apply local/global counters, thresholding, Gaussian smoothing, edge detection, and slope thresholding to improve map accuracy and reliability.
+
+7. **Evaluation**
+   - Compare the generated map against ground truth data to measure accuracy and completeness. Adjust parameters to optimize performance.
+
+8. **Homography Matrix Utilization**
+   - Calculate the homography matrix at the start of exploration for accurate mapping of image lines to world coordinates.
+
+9. **Segmentation and Classification**
+   - Segment the image into "floor" (free space) and "non-floor" (obstacles) regions, and use this classification to update the occupancy grid.
+
+10. **Reclassification**
+    - Reclassify non-floor cells as obstacles or occlusive regions, and map these using the homography matrix.
+
+11. **Obstacle Expansion**
+    - Expand obstacle cells based on the robot’s pose uncertainties to account for potential errors in the robot’s position.
+
+## Architecture
+
+### ORB-SLAM System
+- **Input**: Monocular camera captures the environment.
+- **Process**: ORB-SLAM performs feature extraction, matching, pose estimation, and map point generation.
+
+### 2D Grid Map Generation
+- **Projection**: Keyframes and map points from ORB-SLAM are projected onto the XZ plane to create a 2D grid.
+- **Enhancements**: Apply local/global counters, thresholding, Gaussian smoothing, edge detection, and slope thresholding to the projected points.
+
+### Occupancy Grid Modeling
+- **Matrix Calculation**: Calculate the homography matrix for accurate mapping of image lines to world coordinates.
+- **Segmentation**: Segment the image into "floor" and "non-floor" regions.
+- **Reclassification**: Reclassify non-floor cells as obstacles or occlusive regions.
+- **Mapping**: Use the homography matrix to map cells to the world coordinates. Expand obstacle cells based on pose uncertainties.
+
+### ROS Integration
+- **Nodes**: Create ROS nodes (monopub and monosub) for publishing and subscribing to map data.
+- **Visualization**: Use Rviz and Gazebo for real-time visualization of the map and robot navigation.
+
+### Probabilistic Modeling
+- **Sensor Modeling**: Model the camera as a distance sensor using a Gaussian function to calculate cell occupation probabilities.
+- **Variance Calculation**: Calculate the sensor’s variance behavior to account for measurement inaccuracies. Use experimentally determined constants to refine this model.
+
+## Technology Used
+- **ORB-SLAM**: For feature extraction, matching, pose estimation, and 3D map point generation.
+- **Python and C++**: For scripting and real-time implementation of the grid map generation and enhancements.
+- **ROS (Robot Operating System)**: For real-time data handling, visualization, and navigation.
+- **Rviz and Gazebo**: For visualizing the generated maps and robot navigation.
+- **Probabilistic Modeling**: For handling uncertainties in sensor measurements and robot pose.
+
+## Conclusion
+The proposed system provides a robust and efficient solution for generating real-time 2D occupancy grids from monocular vision-based SLAM data. By integrating advanced enhancement techniques and probabilistic modeling, the system ensures accurate mapping and reliable navigation. The use of ROS for visualization and real-time processing further enhances the system’s capabilities, making it a valuable tool for robotic navigation in dynamic and uncertain environments.
+
+
+
+
 # ORB-SLAM2
 
 
