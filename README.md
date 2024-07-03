@@ -3,6 +3,8 @@ Documentation is avalable at:
 _____________________________________________________________________________
 _____________________________________________________________________________
 
+# 2D GRID OCCUPANCY MAPPING USING OVERHEAD CAMERA - Intel Unnati Industrial Training Program 2024 
+
 # ORB-SLAM2
 
 
