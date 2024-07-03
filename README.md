@@ -1,22 +1,30 @@
 Documentation is avalable at:
-    <b>https://github.com/abhineet123/ORB_SLAM2/blob/master/2d-grid-mapping.pdf</b>
+    <b>https://github.com/Alfa-Satapathy/2D-GRID-OCCUPANCY-MAPPING-USING-OVERHEAD-CAMERA/blob/main/2D%20Grid%20Mapping%20Using%20Overhead%20Camera.pdf</b>
 _____________________________________________________________________________
 _____________________________________________________________________________
 
 # ORB-SLAM2
 
 
-ORB-SLAM2 is a real-time SLAM library for **Monocular**, **Stereo** and **RGB-D** cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time. We provide examples to run the SLAM system in the [KITTI dataset](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) as stereo or monocular, in the [TUM dataset](http://vision.in.tum.de/data/datasets/rgbd-dataset) as RGB-D or monocular, and in the [EuRoC dataset](http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) as stereo or monocular. We also provide a ROS node to process live monocular, stereo or RGB-D streams. **The library can be compiled without ROS**. ORB-SLAM2 provides a GUI to change between a *SLAM Mode* and *Localization Mode*, see section 9 of this document.
+ORB-SLAM2 is a state-of-the-art system for real-time SLAM, capable of building large-scale maps of the environment while simultaneously tracking the camera's position within these maps. It supports various camera configurations, including monocular, stereo, and RGB-D setups, making it versatile for different robotic and augmented reality applications.
 
-<a ><img src="http://img.youtube.com/vi/ufvPS5wJAx0/0.jpg" 
-alt="ORB-SLAM2" width="240" height="180" border="10" /></a>
-<aimg src="http://img.youtube.com/vi/T-9PYCKhDLM/0.jpg" 
-alt="ORB-SLAM2" width="240" height="180" border="10" /></a>
-<a ><img src="http://img.youtube.com/vi/kPwy8yA4CKM/0.jpg" 
-alt="ORB-SLAM2" width="240" height="180" border="10" /></a>
+Key features of ORB-SLAM2 include:
+
+1. **ORB Features**: It uses the ORB (Oriented FAST and Rotated BRIEF) feature detector and descriptor, which are efficient and robust to changes in viewpoint and lighting conditions. These features are used for keypoint extraction, matching, and tracking across frames.
+
+2. **Simultaneous Localization and Mapping (SLAM)**: ORB-SLAM2 performs real-time localization of the camera (pose estimation) and mapping of the environment concurrently. This is essential for tasks like robot navigation and mapping of unknown environments.
+
+3. **Loop Closure**: It incorporates a loop closing mechanism to detect and close loops in the map, improving accuracy and consistency over time. Loop closure helps in correcting drift and maintaining the integrity of the map.
+
+4. **Relocalization**: ORB-SLAM2 can relocalize the camera within a previously mapped environment if tracking is lost, enabling robust and continuous operation even in challenging conditions where tracking may temporarily fail.
+
+5. **Map Optimization**: The system optimizes the map structure and camera poses to improve accuracy and efficiency. This involves refining the map based on new observations and adjusting the estimated poses of the camera to minimize errors.
+
+6. **Open Source**: ORB-SLAM2 is released under an open-source license, allowing researchers and developers to use, modify, and extend the system for their specific applications. This has contributed to its widespread adoption and continuous improvement in the computer vision and robotics communities.
+
+Overall, ORB-SLAM2 represents a significant advancement in SLAM technology, providing robust, real-time performance suitable for both academic research and practical deployment in autonomous systems and augmented reality platforms.
 
 
-###Related Publications:
 
 
 #1. License
